@@ -105,6 +105,9 @@ const currentItem = computed(() => items[props.activeIdx])
   padding: 14px 18px;
   background: var(--primary);
   color: #fff;
+  height: 60px;
+  display: flex;
+  align-items: center;
 }
 .ach-intro-title {
   font-family: var(--font-title);
@@ -157,34 +160,34 @@ const currentItem = computed(() => items[props.activeIdx])
 .ach-intro-body > * { position: relative; z-index: 1; }
 .ach-intro-h {
   font-family: var(--font-title);
-  font-size: 18px;
+  font-size: 20px;
   color: var(--primary);
   line-height: 1.55;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   font-weight: 700;
 }
 .ach-intro-meta {
-  font-size: 12px;
+  font-size: 16px;
   color: var(--text-muted);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
-.ach-intro-meta .dot { margin: 0 6px; }
+.ach-intro-meta .dot { margin: 0 8px; }
 .ach-intro-divider {
   height: 1px;
   background: var(--border);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 .ach-intro-text {
-  font-size: 13px;
+  font-size: 18px;
   color: var(--text-secondary);
-  line-height: 1.85;
+  line-height: 1.9;
   text-indent: 2em;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 .ach-intro-more {
   display: inline-block;
-  margin-top: 12px;
-  font-size: 13px;
+  margin-top: 14px;
+  font-size: 14px;
   color: var(--accent-dark);
   align-self: flex-start;
 }

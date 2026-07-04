@@ -71,15 +71,17 @@ onUnmounted(stopAuto)
   background: #fff;
   border: 1px solid var(--border);
   padding: 18px 20px 20px;
-  overflow: hidden;
+  overflow: visible;
   position: relative;
 }
 .ach-awards > * { position: relative; z-index: 1; }
+.ach-awards { overflow: visible; }
+.ach-awards-viewport { overflow: hidden; }
 section.ach-awards > svg.ach-awards-wave {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
   height: 100%;
   pointer-events: none;
   z-index: 0;

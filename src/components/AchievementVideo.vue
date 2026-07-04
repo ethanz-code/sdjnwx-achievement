@@ -53,6 +53,9 @@ const onPlay = () => {}
   padding: 14px 18px;
   background: var(--primary);
   color: #fff;
+  height: 60px;
+  display: flex;
+  align-items: center;
 }
 .ach-video-title {
   font-family: var(--font-title);

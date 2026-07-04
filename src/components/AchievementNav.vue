@@ -43,6 +43,9 @@ const items = [
   padding: 14px 18px;
   background: var(--primary);
   color: #fff;
+  height: 60px;
+  display: flex;
+  align-items: center;
 }
 .ach-nav-title {
   font-family: var(--font-title);
@@ -66,7 +69,7 @@ const items = [
   align-items: center;
   gap: 10px;
   padding: 11px 18px;
-  font-size: 14px;
+  font-size: 17px;
   color: var(--text-secondary);
   cursor: pointer;
   border-left: 3px solid transparent;

@@ -27,10 +27,10 @@
 
 <script setup>
 const qrs = [
-  { img: 'https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=http://weixin.qq.com/r/F0nbwyfE53qYrWOg9xwF', label: '微信公众号' },
-  { img: 'https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://jsjb.sdei.edu.cn/ssfwApp/', label: '学校接诉即办系统' },
-  { img: 'https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://www.sdjnwx.com/', label: '学校官网' },
-  { img: 'https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://ai.xiaopaicloud.com/00cfedac-1096-4372-9f21-f7d5668f0fdb', label: '招生小助理' },
+  { img: '/qr-wechat.webp', label: '微信公众号' },
+  { img: '/qr-appeal.webp', label: '学校接诉即办系统' },
+  { img: '/qr-website.webp', label: '学校官网' },
+  { img: '/qr-admission.webp', label: '招生小助理' },
 ]
 </script>
 
