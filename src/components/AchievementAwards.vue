@@ -32,11 +32,11 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const imageFiles = [
-  'WPS图片.jpeg', 'WPS图片(1).jpeg', 'WPS图片.png', 'WPS图片(1).png',
-  '图片1.png', '图片2.png', '图片3.png', '图片4.png',
-  '图片5.png', '图片6.png', '图片7.png', '图片8.png',
-  '图片10.png', '图片11.png', '图片12.png', '图片13.png',
-  '图片14.png', '图片15.png', '图片16.png', '图片17.png',
+  'WPS图片.webp', 'WPS图片(1).webp',
+  '图片1.webp', '图片2.webp', '图片3.webp', '图片4.webp',
+  '图片5.webp', '图片6.webp', '图片7.webp', '图片8.webp',
+  '图片10.webp', '图片11.webp', '图片12.webp', '图片13.webp',
+  '图片14.webp', '图片15.webp', '图片16.webp', '图片17.webp',
 ]
 
 const items = imageFiles.map(f => ({

@@ -1,6 +1,16 @@
 <script setup>
 import { useRoute } from 'vue-router'
 const route = useRoute()
+function isTabActive(to) {
+  const [p, qs] = to.split('?')
+  if (route.path !== p) return false
+  if (!qs) return true
+  const params = new URLSearchParams(qs)
+  for (const [k, v] of params) {
+    if (route.query[k] !== v) return false
+  }
+  return true
+}
 </script>
 
 <template>
@@ -22,34 +32,34 @@ const route = useRoute()
           <div class="nav-dropdown">
             <router-link to="/application" class="nav-item" active-class="active">申报书</router-link>
             <div class="dropdown-menu">
-              <router-link to="/application?tab=0" :class="{ active: route.query.tab === '0' }">成果简介</router-link>
-              <router-link to="/application?tab=1" :class="{ active: route.query.tab === '1' }">主要完成人情况</router-link>
-              <router-link to="/application?tab=2" :class="{ active: route.query.tab === '2' }">主要完成单位情况</router-link>
+              <router-link to="/application?tab=0" :class="{ active: isTabActive('/application?tab=0') }">成果简介</router-link>
+              <router-link to="/application?tab=1" :class="{ active: isTabActive('/application?tab=1') }">主要完成人情况</router-link>
+              <router-link to="/application?tab=2" :class="{ active: isTabActive('/application?tab=2') }">主要完成单位情况</router-link>
             </div>
           </div>
           <router-link to="/report" class="nav-item" active-class="active">成果报告</router-link>
           <div class="nav-dropdown">
             <router-link to="/awards-history" class="nav-item" active-class="active">成果曾获奖励</router-link>
             <div class="dropdown-menu">
-              <router-link to="/awards-history?tab=0" :class="{ active: route.query.tab === '0' }">2026年职业教育省级教学成果</router-link>
-              <router-link to="/awards-history?tab=1" :class="{ active: route.query.tab === '1' }">首批全国健康学校建设单位</router-link>
-              <router-link to="/awards-history?tab=2" :class="{ active: route.query.tab === '2' }">首批全国急救教育试点学校</router-link>
-              <router-link to="/awards-history?tab=3" :class="{ active: route.query.tab === '3' }">2025年世界职业院校技能大赛金奖</router-link>
-              <router-link to="/awards-history?tab=4" :class="{ active: route.query.tab === '4' }">2024年世界职业院校技能大赛金奖</router-link>
+              <router-link to="/awards-history?tab=0" :class="{ active: isTabActive('/awards-history?tab=0') }">2026年职业教育省级教学成果</router-link>
+              <router-link to="/awards-history?tab=1" :class="{ active: isTabActive('/awards-history?tab=1') }">首批全国健康学校建设单位</router-link>
+              <router-link to="/awards-history?tab=2" :class="{ active: isTabActive('/awards-history?tab=2') }">首批全国急救教育试点学校</router-link>
+              <router-link to="/awards-history?tab=3" :class="{ active: isTabActive('/awards-history?tab=3') }">2025年世界职业院校技能大赛金奖</router-link>
+              <router-link to="/awards-history?tab=4" :class="{ active: isTabActive('/awards-history?tab=4') }">2024年世界职业院校技能大赛金奖</router-link>
             </div>
           </div>
           <router-link to="/landmark" class="nav-item" active-class="active">标志性成果</router-link>
           <div class="nav-dropdown">
             <router-link to="/attachments" class="nav-item" active-class="active">附件材料</router-link>
             <div class="dropdown-menu">
-              <router-link to="/attachments?tab=0" :class="{ active: route.query.tab === '0' }">领导认可与批示</router-link>
-              <router-link to="/attachments?tab=1" :class="{ active: route.query.tab === '1' }">应用证明</router-link>
-              <router-link to="/attachments?tab=2" :class="{ active: route.query.tab === '2' }">成果推广</router-link>
-              <router-link to="/attachments?tab=3" :class="{ active: route.query.tab === '3' }">制度建设</router-link>
-              <router-link to="/attachments?tab=4" :class="{ active: route.query.tab === '4' }">标志性成果</router-link>
-              <router-link to="/attachments?tab=5" :class="{ active: route.query.tab === '5' }">师生获奖</router-link>
-              <router-link to="/attachments?tab=6" :class="{ active: route.query.tab === '6' }">教科研成果</router-link>
-              <router-link to="/attachments?tab=7" :class="{ active: route.query.tab === '7' }">标准专利软著</router-link>
+              <router-link to="/attachments?tab=0" :class="{ active: isTabActive('/attachments?tab=0') }">领导认可与批示</router-link>
+              <router-link to="/attachments?tab=1" :class="{ active: isTabActive('/attachments?tab=1') }">应用证明</router-link>
+              <router-link to="/attachments?tab=2" :class="{ active: isTabActive('/attachments?tab=2') }">成果推广</router-link>
+              <router-link to="/attachments?tab=3" :class="{ active: isTabActive('/attachments?tab=3') }">制度建设</router-link>
+              <router-link to="/attachments?tab=4" :class="{ active: isTabActive('/attachments?tab=4') }">标志性成果</router-link>
+              <router-link to="/attachments?tab=5" :class="{ active: isTabActive('/attachments?tab=5') }">师生获奖</router-link>
+              <router-link to="/attachments?tab=6" :class="{ active: isTabActive('/attachments?tab=6') }">教科研成果</router-link>
+              <router-link to="/attachments?tab=7" :class="{ active: isTabActive('/attachments?tab=7') }">标准专利软著</router-link>
             </div>
           </div>
           <router-link to="/achievement-video" class="nav-item" active-class="active">成果视频</router-link>
