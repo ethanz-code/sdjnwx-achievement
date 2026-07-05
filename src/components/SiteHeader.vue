@@ -1,10 +1,15 @@
+<script setup>
+import { useRoute } from 'vue-router'
+const route = useRoute()
+</script>
+
 <template>
   <header class="site-header">
     <div class="header-top">
       <div class="center header-top-inner">
         <div class="header-logo-group">
           <div class="header-logo">
-            <img src="/logo.webp" alt="济南护理职业学院">
+            <router-link to="/"><img src="/logo.webp" alt="济南护理职业学院"></router-link>
           </div>
           <div class="header-project-title">《全人健康·全链协同·处方育人：卫生类高职院校健康教育体系的创新与实践》</div>
         </div>
@@ -13,49 +18,46 @@
     <nav class="header-nav">
       <div class="center nav-inner">
         <div class="nav-left">
-          <a href="/" class="nav-item active">首页</a>
+          <router-link to="/" class="nav-item" exact-active-class="active">首页</router-link>
           <div class="nav-dropdown">
-            <a href="#" class="nav-item">申报书</a>
+            <router-link to="/application" class="nav-item" active-class="active">申报书</router-link>
             <div class="dropdown-menu">
-              <a href="#">成果简介</a>
-              <a href="#">主要完成人情况</a>
-              <a href="#">主要完成单位情况</a>
+              <router-link to="/application?tab=0" :class="{ active: route.query.tab === '0' }">成果简介</router-link>
+              <router-link to="/application?tab=1" :class="{ active: route.query.tab === '1' }">主要完成人情况</router-link>
+              <router-link to="/application?tab=2" :class="{ active: route.query.tab === '2' }">主要完成单位情况</router-link>
             </div>
           </div>
-          <a href="#" class="nav-item">成果报告</a>
+          <router-link to="/report" class="nav-item" active-class="active">成果报告</router-link>
           <div class="nav-dropdown">
-            <a href="#" class="nav-item">成果曾获奖励</a>
+            <router-link to="/awards-history" class="nav-item" active-class="active">成果曾获奖励</router-link>
             <div class="dropdown-menu">
-              <a href="#">2026年职业教育省级教学成果</a>
-              <a href="#">首批全国健康学校建设单位</a>
-              <a href="#">首批全国急救教育试点学校</a>
-              <a href="#">2025年世界职业院校技能大赛金奖</a>
-              <a href="#">2024年世界职业院校技能大赛金奖</a>
+              <router-link to="/awards-history?tab=0" :class="{ active: route.query.tab === '0' }">2026年职业教育省级教学成果</router-link>
+              <router-link to="/awards-history?tab=1" :class="{ active: route.query.tab === '1' }">首批全国健康学校建设单位</router-link>
+              <router-link to="/awards-history?tab=2" :class="{ active: route.query.tab === '2' }">首批全国急救教育试点学校</router-link>
+              <router-link to="/awards-history?tab=3" :class="{ active: route.query.tab === '3' }">2025年世界职业院校技能大赛金奖</router-link>
+              <router-link to="/awards-history?tab=4" :class="{ active: route.query.tab === '4' }">2024年世界职业院校技能大赛金奖</router-link>
             </div>
           </div>
-          <a href="#" class="nav-item">标志性成果</a>
+          <router-link to="/landmark" class="nav-item" active-class="active">标志性成果</router-link>
           <div class="nav-dropdown">
-            <a href="#" class="nav-item">附件材料</a>
+            <router-link to="/attachments" class="nav-item" active-class="active">附件材料</router-link>
             <div class="dropdown-menu">
-              <a href="#">领导认可与批示</a>
-              <a href="#">应用证明</a>
-              <a href="#">成果推广</a>
-              <a href="#">制度建设</a>
-              <a href="#">标志性成果</a>
-              <a href="#">师生获奖</a>
-              <a href="#">教科研成果</a>
-              <a href="#">标准专利软著</a>
+              <router-link to="/attachments?tab=0" :class="{ active: route.query.tab === '0' }">领导认可与批示</router-link>
+              <router-link to="/attachments?tab=1" :class="{ active: route.query.tab === '1' }">应用证明</router-link>
+              <router-link to="/attachments?tab=2" :class="{ active: route.query.tab === '2' }">成果推广</router-link>
+              <router-link to="/attachments?tab=3" :class="{ active: route.query.tab === '3' }">制度建设</router-link>
+              <router-link to="/attachments?tab=4" :class="{ active: route.query.tab === '4' }">标志性成果</router-link>
+              <router-link to="/attachments?tab=5" :class="{ active: route.query.tab === '5' }">师生获奖</router-link>
+              <router-link to="/attachments?tab=6" :class="{ active: route.query.tab === '6' }">教科研成果</router-link>
+              <router-link to="/attachments?tab=7" :class="{ active: route.query.tab === '7' }">标准专利软著</router-link>
             </div>
           </div>
-          <a href="#" class="nav-item">成果视频</a>
+          <router-link to="/achievement-video" class="nav-item" active-class="active">成果视频</router-link>
         </div>
       </div>
     </nav>
   </header>
 </template>
-
-<script setup>
-</script>
 
 <style scoped>
 .site-header { background: #fff; border-bottom: 1px solid var(--border); }
@@ -87,9 +89,7 @@
   line-height: 1.5;
 }
 .header-nav { background: var(--primary); }
-.nav-inner {
-  height: 60px;
-}
+.nav-inner { height: 60px; }
 .nav-left {
   display: flex;
   align-items: center;
@@ -106,7 +106,7 @@
   font-weight: 700;
   letter-spacing: 3px;
   text-align: center;
-  transition: var(--transition);
+  transition: background 0.15s;
 }
 .nav-left .nav-item:hover,
 .nav-left .nav-item.active { background: var(--accent); }
@@ -144,16 +144,19 @@
   font-size: 14px;
   color: var(--text-secondary);
   font-family: var(--font-body);
-  transition: var(--transition);
-  line-height: 1.4;
+  cursor: pointer;
+  line-height: 1.5;
   word-break: break-all;
   border-left: 3px solid transparent;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
-.dropdown-menu a:hover {
+.dropdown-menu a:hover,
+.dropdown-menu a.active {
   background: var(--bg-soft);
   color: var(--primary);
-  font-weight: 600;
   border-left-color: var(--accent);
-  text-decoration: underline;
+}
+.dropdown-menu a.active {
+  font-weight: 700;
 }
 </style>

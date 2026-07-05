@@ -2,13 +2,9 @@
   <div id="app-root">
     <SiteHeader />
     <main class="main-content">
-      <div class="center three-col">
-        <AchievementNav :active-idx="activeIdx" @select="activeIdx = $event" />
-        <AchievementVideo />
-        <AchievementIntro :active-idx="activeIdx" />
-      </div>
       <div class="center">
-        <AchievementAwards />
+        <HomeView v-if="isHome" />
+        <router-view v-else />
       </div>
     </main>
     <SiteFooter />
@@ -16,15 +12,14 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 import SiteHeader from './components/SiteHeader.vue'
 import SiteFooter from './components/SiteFooter.vue'
-import AchievementNav from './components/AchievementNav.vue'
-import AchievementVideo from './components/AchievementVideo.vue'
-import AchievementIntro from './components/AchievementIntro.vue'
-import AchievementAwards from './components/AchievementAwards.vue'
+import HomeView from './views/HomeView.vue'
 
-const activeIdx = ref(0)
+const route = useRoute()
+const isHome = computed(() => route.path === '/')
 </script>
 
 <style>
@@ -67,10 +62,4 @@ img { max-width: 100%; vertical-align: middle; }
 }
 .pointer { cursor: pointer; }
 .main-content { padding: 20px 0 24px; }
-.three-col {
-  display: grid;
-  grid-template-columns: 220px 1fr 1fr;
-  gap: 16px;
-  align-items: stretch;
-}
 </style>
