@@ -4,94 +4,31 @@
       <h3 class="ach-intro-title">成果简介</h3>
     </div>
     <div class="ach-intro-body">
-      <h4 class="ach-intro-h">{{ currentItem.title }}</h4>
-      <div class="ach-intro-meta">
-        <span>来源：{{ currentItem.source }}</span>
-        <span class="dot">·</span>
-        <span>时间：{{ currentItem.date }}</span>
-      </div>
-      <div class="ach-intro-divider"></div>
-      <p class="ach-intro-text" v-for="(p, i) in currentItem.paragraphs" :key="i">
-        {{ p }}
-      </p>
-      <a href="#" class="ach-intro-more">查看详情&gt;&gt;</a>
+      <p class="ach-intro-text">{{ excerpt }}</p>
+      <button class="ach-intro-more" @click="showPdf = true">查看更多</button>
     </div>
+
+    <Teleport to="body">
+      <div v-if="showPdf" class="ach-modal" @click.self="showPdf = false">
+        <div class="ach-modal-panel">
+          <div class="ach-modal-head">
+            <span class="ach-modal-title">成果简介</span>
+            <button class="ach-modal-close" @click="showPdf = false">&times;</button>
+          </div>
+          <iframe :src="pdfSrc" class="ach-modal-frame"></iframe>
+        </div>
+      </div>
+    </Teleport>
   </aside>
 </template>
 
 <script setup>
-import { computed } from 'vue'
-const props = defineProps({ activeIdx: { type: Number, default: 0 } })
-const items = [
-  {
-    title: '护理学科建设取得标志性突破',
-    source: '教务处',
-    date: '2026-07-02',
-    paragraphs: [
-      '我院护理学科团队围绕老年慢病管理与社区护理服务开展系统研究，形成一批可推广、可复制的标志性成果，填补了区域内护理学科的多项空白。',
-      '相关成果在山东省科学技术奖评选中荣获二等奖 2 项、三等奖 3 项，发表 SCI 论文 18 篇，获国家发明专利授权 6 项。',
-    ],
-  },
-  {
-    title: '康复治疗技术应用成果显著',
-    source: '康复医学系',
-    date: '2026-06-18',
-    paragraphs: [
-      '康复治疗技术团队聚焦神经康复、运动损伤康复等方向开展联合攻关，研发的智能康复训练系统已在 12 家医疗机构完成应用验证。',
-      '项目获省级课题立项 3 项，成果转化签约金额突破 800 万元。',
-    ],
-  },
-  {
-    title: '智慧健康养老服务模式创新',
-    source: '老年保健系',
-    date: '2026-05-30',
-    paragraphs: [
-      '面向健康养老产业重大需求，构建"医-养-护"一体化智慧健康养老服务模式，建立可推广的行业标准与人才培养体系。',
-      '已为济南市 5 个社区提供技术服务，覆盖老年人群约 1.2 万人。',
-    ],
-  },
-  {
-    title: '中医药传承创新成果',
-    source: '中医药学系',
-    date: '2026-05-12',
-    paragraphs: [
-      '中医药学系在中药制剂工艺优化、传统疗法现代化等方面取得新进展，发表高水平论文 9 篇，获实用新型专利 5 项。',
-    ],
-  },
-  {
-    title: '医学检验技术研究进展',
-    source: '医学检验系',
-    date: '2026-04-25',
-    paragraphs: [
-      '医学检验系团队在快速检测、分子诊断方向实现关键技术突破，相关产品已进入临床试验阶段。',
-    ],
-  },
-  {
-    title: '药学服务能力建设',
-    source: '药学系',
-    date: '2026-04-08',
-    paragraphs: [
-      '药学系围绕临床药学服务开展系统研究，建立合理用药监测体系，相关成果获省级立项 2 项。',
-    ],
-  },
-  {
-    title: '公共卫生应急能力研究',
-    source: '公共卫生系',
-    date: '2026-03-20',
-    paragraphs: [
-      '公共卫生系聚焦突发公共卫生事件应急处置，形成决策咨询报告 3 份，获省领导批示肯定。',
-    ],
-  },
-  {
-    title: '医学影像技术应用突破',
-    source: '医学影像系',
-    date: '2026-03-05',
-    paragraphs: [
-      '医学影像系在 AI 辅助诊断、影像组学方向取得阶段性成果，发表 SCI 论文 6 篇。',
-    ],
-  },
-]
-const currentItem = computed(() => items[props.activeIdx])
+import { ref } from 'vue'
+
+const showPdf = ref(false)
+const pdfSrc = '/docs/成果简介/成果简介.pdf'
+
+const excerpt = '本成果积极响应习近平总书记"健康第一"教育理念的重要指示精神与"健康中国"战略部署，落实《"健康中国2030"规划纲要》"加大学校健康教育力度"的要求，直面高职健康教育普遍存在的"育人目标偏差、教学资源分散、实施路径粗放"三大教学短板，着力解决学生健康意识淡漠、自身健康维护和促进能力不足的问题。学校依托2016年"中国青春健康教育示范基地"建设，历经10年探索实践，系统构建健康教育体系，将卫生类高职院校的专业特色充分转化为健康育人优势，致力于培养学生成为健康生活践行者、技能文明传承者、健康中国传播者。'
 </script>
 
 <style scoped>
@@ -100,6 +37,8 @@ const currentItem = computed(() => items[props.activeIdx])
   border: 1px solid var(--border);
   display: flex;
   flex-direction: column;
+  min-height: var(--pl-body-min-height, 500px);
+  max-height: calc(100vh - 190px);
 }
 .ach-intro-head {
   padding: 14px 18px;
@@ -126,12 +65,12 @@ const currentItem = computed(() => items[props.activeIdx])
   background: var(--accent);
 }
 .ach-intro-body {
-  padding: 20px 22px 22px;
+  padding: 14px 22px 16px;
   flex: 1;
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow: hidden;
+  overflow-y: auto;
 }
 .ach-intro-body::before {
   content: '';
@@ -158,25 +97,6 @@ const currentItem = computed(() => items[props.activeIdx])
   z-index: 0;
 }
 .ach-intro-body > * { position: relative; z-index: 1; }
-.ach-intro-h {
-  font-family: var(--font-title);
-  font-size: 20px;
-  color: var(--primary);
-  line-height: 1.55;
-  margin-bottom: 12px;
-  font-weight: 700;
-}
-.ach-intro-meta {
-  font-size: 16px;
-  color: var(--text-muted);
-  margin-bottom: 14px;
-}
-.ach-intro-meta .dot { margin: 0 8px; }
-.ach-intro-divider {
-  height: 1px;
-  background: var(--border);
-  margin-bottom: 14px;
-}
 .ach-intro-text {
   font-size: 18px;
   color: var(--text-secondary);
@@ -185,11 +105,75 @@ const currentItem = computed(() => items[props.activeIdx])
   margin-bottom: 10px;
 }
 .ach-intro-more {
-  display: inline-block;
-  margin-top: 14px;
-  font-size: 14px;
-  color: var(--accent-dark);
-  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: auto;
+  padding: 8px 24px;
+  font-size: 15px;
+  color: #fff;
+  background: var(--accent-dark, #b8860b);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: center;
+  transition: opacity 0.2s;
+  letter-spacing: 2px;
 }
-.ach-intro-more:hover { text-decoration: underline; }
+.ach-intro-more:hover { opacity: 0.85; }
+
+.ach-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+.ach-modal-panel {
+  width: 100%;
+  height: 100%;
+  max-width: 1100px;
+  max-height: 90vh;
+  background: #fff;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+}
+.ach-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: var(--primary);
+  color: #fff;
+  flex-shrink: 0;
+}
+.ach-modal-title {
+  font-family: var(--font-title);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.ach-modal-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 32px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 4px;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.ach-modal-close:hover { opacity: 1; }
+.ach-modal-frame {
+  width: 100%;
+  flex: 1;
+  border: none;
+}
 </style>

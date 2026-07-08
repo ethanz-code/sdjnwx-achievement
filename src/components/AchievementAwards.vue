@@ -32,15 +32,15 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const imageFiles = [
-  'WPS图片.webp', 'WPS图片(1).webp',
-  '图片1.webp', '图片2.webp', '图片3.webp', '图片4.webp',
-  '图片5.webp', '图片6.webp', '图片7.webp', '图片8.webp',
-  '图片10.webp', '图片11.webp', '图片12.webp', '图片13.webp',
-  '图片14.webp', '图片15.webp', '图片16.webp', '图片17.webp',
+  'wps.webp', 'wps-1.webp',
+  'award-01.webp', 'award-02.webp', 'award-03.webp', 'award-04.webp',
+  'award-05.webp', 'award-06.webp', 'award-07.webp', 'award-08.webp',
+  'award-10.webp', 'award-11.webp', 'award-12.webp', 'award-13.webp',
+  'award-14.webp', 'award-15.webp', 'award-16.webp', 'award-17.webp',
 ]
 
 const items = imageFiles.map(f => ({
-  img: `/images/获奖照片/${encodeURIComponent(f)}`
+  img: `/images/awards/${f}`
 }))
 
 const doubled = [...items, ...items]

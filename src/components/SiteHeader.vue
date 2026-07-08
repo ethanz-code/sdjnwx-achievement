@@ -165,6 +165,10 @@ function isTabActive(to) {
   background: var(--bg-soft);
   color: var(--primary);
   border-left-color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
 }
 .dropdown-menu a.active {
   font-weight: 700;
