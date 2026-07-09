@@ -35,7 +35,7 @@ const props = defineProps({
   poster: { type: String, default: '/logo.webp' },
 })
 
-const playing = ref(false)
+const playing = ref(!!props.src)
 const videoEl = ref(null)
 const toast = ref('')
 let toastTimer = null

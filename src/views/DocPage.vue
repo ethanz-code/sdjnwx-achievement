@@ -1,7 +1,7 @@
 <template>
   <PageLayout>
     <div v-if="routeName === 'achievement-video'" class="vid-page">
-      <AchievementVideo />
+      <AchievementVideo src="https://cdn.itcox.cn/sdts/JinanNursingNationalProject.mp4" />
     </div>
     <ContentLoader v-else />
   </PageLayout>

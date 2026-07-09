@@ -104,8 +104,8 @@ const configMap = {
       { label: '2026年职业教育省级教学成果', path: '/awards-history?tab=0', children: [] },
       { label: '首批全国健康学校建设单位', path: '/awards-history?tab=1', children: [] },
       { label: '首批全国急救教育试点学校', path: '/awards-history?tab=2', children: [] },
-      { label: '2025年世界职业院校技能大赛金奖', path: '/awards-history?tab=3', children: [] },
-      { label: '2024年世界职业院校技能大赛金奖', path: '/awards-history?tab=4', children: [] },
+      { label: '2025年世界职业院校技能大赛总决赛争夺赛金奖', path: '/awards-history?tab=3', children: [] },
+      { label: '2024年世界职业院校技能大赛总决赛争夺赛金奖', path: '/awards-history?tab=4', children: [] },
     ],
   },
   landmark: {

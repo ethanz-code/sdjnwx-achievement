@@ -2,7 +2,7 @@
   <div class="home-body">
     <PageLayout>
     <div class="top-row" :class="{ 'has-content': hasSection }">
-      <AchievementVideo />
+      <AchievementVideo src="https://cdn.itcox.cn/sdts/JinanNursingNationalProject.mp4" />
       <AchievementIntro v-if="!hasSection" />
       <ContentLoader v-else />
     </div>

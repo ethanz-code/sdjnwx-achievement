@@ -44,8 +44,8 @@ function isTabActive(to) {
               <router-link to="/awards-history?tab=0" :class="{ active: isTabActive('/awards-history?tab=0') }">2026年职业教育省级教学成果</router-link>
               <router-link to="/awards-history?tab=1" :class="{ active: isTabActive('/awards-history?tab=1') }">首批全国健康学校建设单位</router-link>
               <router-link to="/awards-history?tab=2" :class="{ active: isTabActive('/awards-history?tab=2') }">首批全国急救教育试点学校</router-link>
-              <router-link to="/awards-history?tab=3" :class="{ active: isTabActive('/awards-history?tab=3') }">2025年世界职业院校技能大赛金奖</router-link>
-              <router-link to="/awards-history?tab=4" :class="{ active: isTabActive('/awards-history?tab=4') }">2024年世界职业院校技能大赛金奖</router-link>
+              <router-link to="/awards-history?tab=3" :class="{ active: isTabActive('/awards-history?tab=3') }">2025年世界职业院校技能大赛总决赛争夺赛金奖</router-link>
+              <router-link to="/awards-history?tab=4" :class="{ active: isTabActive('/awards-history?tab=4') }">2024年世界职业院校技能大赛总决赛争夺赛金奖</router-link>
             </div>
           </div>
           <router-link to="/landmark" class="nav-item" active-class="active">标志性成果</router-link>
